@@ -8,61 +8,97 @@ this should turn the background blue ;) */
 }
 
 html {
-  font-family: 'Roboto', sans-serif;
-
+  font-family: 'Playfair Display SC', serif;
+  font-weight: lighter;
 }
 
 
 body {
-  background: #b6d7a8;
+  background: #e1e9dd;
   color: #003300;
-  font-size: 20px;
 }
 
 
 img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 100%;
+  max-height: 100%;
+  opacity: 0.4;
 }
 
-header {
+.header-class {
   height: 500px;
-  background-image: url(pictures/applepicture.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #fafbf2;
+  position: relative;
 }
 
-
-.header-image {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+/* .header-class::before; 
+This (is a pseudo element (A CSS pseudo-element is a keyword added to a selector that lets you style a specific part of the selected element(s))*/
+.header-class::before {
+  content: "";
+  background-image: url(pictures/applepicture.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.33;
 }
-
 
 .imagetext {
   text-align: center;
-  padding-top: 200px;
-  color: azure;
+  margin-block-start: 3.5em;
+  margin-block-end: 0.75em;
+  /*padding-inline: 10px;
+  is it necessary?*/
+  padding: 50px;
+  border: solid #003300;
+  position: relative;
+  font-size: 40px;
+  line-height: 0.9;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
 }
 
 
-.main-header {
-  padding-bottom: 40px;
-  font-size: 75px;
+
+p#footer {
+  font-size: 15px;
+  width: center;
+  width: fit-content;
 }
+
+
+/*.header-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 1;
+}*/
 
 .form-container-parent {
+
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 500px;
   padding: 20px;
 }
 
 .form-area-picture {
-  width: 100%;
+  /* width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain;*/
 }
 
 span {
@@ -79,15 +115,12 @@ span {
   margin-bottom: 30px;
 }
 
-.main-header {
-  font-size: 40px;
-}
-
 .footer {
   background-color: #003300;
-  color: white;
+  color: #fafbf2;
   text-align: center;
   padding: 10px;
+  font-size: 10px;
 }
 
 #submit-button {
@@ -104,9 +137,24 @@ span {
 }
 
 /*PHONE SCREEN*/
+/*should I make the imeagetext and headerclass larger for ipad?*/
 @media (max-width: 913px) {
   .form-container-parent {
     grid-template-columns: 1fr;
     padding: 20px;
+  }
+
+  .imagetext {
+    font-size: 20px;
+    color: #124c12;
+    margin-block-start: 3.5em;
+  }
+
+  .header-class {
+    height: 350px;
+  }
+
+  .header-class::before {
+    opacity: 0.3;
   }
 }
